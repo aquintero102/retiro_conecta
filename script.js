@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // SCROLL ANIMATIONS
   // =========================
   const animatedElements = document.querySelectorAll(
-    ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card"
+    ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card, .info-bloque, .info-link-card"
   );
 
   const observer = new IntersectionObserver((entries) => {
