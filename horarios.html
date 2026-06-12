@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetiroConecta | Horarios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          <h1>RetiroConecta</h1>
+          <p>Centro de Transporte Inteligente</p>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" >Inicio</a></li>
+        <li><a href="recorridos.html" >Recorridos</a></li>
+        <li><a href="horarios.html" class="activo">Horarios</a></li>
+        <li><a href="paradas.html" >Paradas</a></li>
+        <li><a href="servicios.html" >Servicios</a></li>
+        <li><a href="contacto.html" >Contacto</a></li>
+      </ul>
+
+      <a href="contacto.html" class="btn-cuenta">Ayuda</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="horarios-hero">
+      <div class="horarios-hero-texto">
+        <h2>Horarios del servicio</h2>
+        <p>Consultá las salidas disponibles desde la Terminal de Retiro hacia los principales destinos conectados por RetiroConecta.</p>
+      </div>
+      <div class="horarios-resumen">
+        <h3>Frecuencia general</h3>
+        <div class="resumen-item"><span>🕒</span><div><strong>Hora pico</strong><p>Cada 20 minutos</p></div></div>
+        <div class="resumen-item"><span>🌙</span><div><strong>Horario nocturno</strong><p>Cada 45 minutos</p></div></div>
+      </div>
+    </section>
+
+    <section class="filtros-horarios">
+      <h2>Buscar horarios</h2>
+      <form>
+        <div class="campo"><label for="destino">Destino</label><select id="destino"><option>Seleccionar destino</option><option>La Plata</option><option>Luján</option><option>Zárate</option><option>Pilar</option></select></div>
+        <div class="campo"><label for="dia">Día</label><select id="dia"><option>Lunes a viernes</option><option>Sábados</option><option>Domingos y feriados</option></select></div>
+        <div class="campo"><label for="turno">Franja horaria</label><select id="turno"><option>Mañana</option><option>Tarde</option><option>Noche</option></select></div>
+        <button type="submit" class="btn-principal">Consultar</button>
+      </form>
+    </section>
+
+    <section class="tabla-section">
+      <div class="section-title"><h2>Tabla de horarios</h2><p>Los horarios son estimativos y pueden variar según el tránsito o modificaciones operativas.</p></div>
+      <div class="tabla-contenedor">
+        <table>
+          <thead><tr><th>Destino</th><th>Primera salida</th><th>Última salida</th><th>Frecuencia</th><th>Tipo de servicio</th></tr></thead>
+          <tbody>
+            <tr><td>Retiro → La Plata</td><td>05:30</td><td>23:45</td><td>20 min</td><td>Rápido / común</td></tr>
+            <tr><td>Retiro → Luján</td><td>06:00</td><td>22:30</td><td>30 min</td><td>Interurbano</td></tr>
+            <tr><td>Retiro → Zárate</td><td>05:45</td><td>22:15</td><td>35 min</td><td>Semirápido</td></tr>
+            <tr><td>Retiro → Pilar</td><td>05:15</td><td>00:10</td><td>20 min</td><td>Rápido / común</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="horarios-cards">
+      <article class="horario-card"><span>🌅</span><h3>Mañana</h3><p>Mayor frecuencia entre las 06:00 y las 09:30.</p></article>
+      <article class="horario-card"><span>☀️</span><h3>Tarde</h3><p>Servicios regulares durante el día.</p></article>
+      <article class="horario-card"><span>🌙</span><h3>Noche</h3><p>Frecuencia reducida con salidas programadas.</p></article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-contenedor">
+      <div class="footer-marca">
+        <div class="footer-logo">
+          <div class="logo-icon">🚌</div>
+          <div>
+            <h3>RetiroConecta</h3>
+            <p>Centro de Transporte Inteligente</p>
+          </div>
+        </div>
+        <p>Conectamos destinos, acercamos personas. Información oficial, actualizada y accesible para que viajar sea más simple.</p>
+      </div>
+
+      <div class="footer-columna">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="recorridos.html">Recorridos</a></li>
+          <li><a href="horarios.html">Horarios</a></li>
+          <li><a href="paradas.html">Paradas</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-columna">
+        <h4>Información</h4>
+        <ul>
+          <li>Preguntas frecuentes</li>
+          <li>Accesibilidad</li>
+          <li>Términos y condiciones</li>
+          <li>Política de privacidad</li>
+        </ul>
+      </div>
+
+      <div class="footer-columna">
+        <h4>Contacto</h4>
+        <ul>
+          <li>0800-123-4567</li>
+          <li>info@retiroconecta.com.ar</li>
+          <li>Terminal de Ómnibus Retiro, CABA</li>
+        </ul>
+        <form class="newsletter">
+          <input type="email" placeholder="Tu email">
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 RetiroConecta. Todos los derechos reservados.</p>
+      <p>Diseño orientado a UX, accesibilidad y movilidad inteligente.</p>
+    </div>
+  </footer>
+    <script src="./script.js"></script>
+</body>
+</html>

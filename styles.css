@@ -1,0 +1,934 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #0b1f3a;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* HEADER */
+
+.header {
+  background-color: #0b1f3a;
+  color: white;
+  padding: 18px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background-color: #ff6b4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.logo h1 {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.logo p {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 15px;
+}
+
+.nav-links a {
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .activo {
+  color: #ff6b4a;
+  opacity: 1;
+}
+
+.btn-cuenta {
+  background-color: #ff6b4a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* BOTONES */
+
+.btn-principal,
+.btn-secundario,
+.btn-card {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-principal {
+  background-color: #ff6b4a;
+  color: white;
+}
+
+.btn-secundario {
+  border: 2px solid #0b1f3a;
+  color: #0b1f3a;
+}
+
+.btn-card {
+  background-color: #0b1f3a;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn-principal:hover,
+.btn-secundario:hover,
+.btn-card:hover {
+  transform: translateY(-3px);
+}
+
+/* SECCIONES GENERALES */
+
+.hero,
+.page-hero,
+.horarios-hero,
+.paradas-hero,
+.servicios-hero,
+.contacto-hero {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-texto h2,
+.page-hero-texto h2,
+.horarios-hero-texto h2,
+.paradas-hero-texto h2,
+.servicios-hero-texto h2,
+.contacto-texto h2 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.hero-texto p,
+.page-hero-texto p,
+.horarios-hero-texto p,
+.paradas-hero-texto p,
+.servicios-hero-texto p,
+.contacto-texto p {
+  font-size: 19px;
+  color: #42526b;
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+.hero-botones,
+.hero-tags,
+.hero-etiquetas,
+.contacto-tags {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-tags span,
+.hero-etiquetas span,
+.contacto-tags span {
+  background: white;
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.08);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-title h2 {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  color: #42526b;
+  font-size: 18px;
+  max-width: 720px;
+  margin: auto;
+}
+
+/* INDEX */
+
+.hero-imagen {
+  background: linear-gradient(135deg, #0b1f3a, #1d3f66);
+  border-radius: 32px;
+  padding: 28px;
+  box-shadow: 0 20px 45px rgba(11, 31, 58, 0.25);
+}
+
+.mockup {
+  background-color: white;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 390px;
+}
+
+.mockup-top {
+  background-color: #e9edf2;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #b9c3cf;
+}
+
+.mockup-body {
+  padding: 30px;
+}
+
+.mockup-banner {
+  background-color: #0b1f3a;
+  color: white;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 22px;
+}
+
+.mockup-card {
+  background-color: #f4f6f8;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mockup-linea {
+  height: 12px;
+  background-color: #d5dde7;
+  border-radius: 999px;
+  width: 65%;
+}
+
+.mockup-button {
+  width: 80px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: #ff6b4a;
+}
+
+.buscador,
+.filtros-horarios {
+  max-width: 1120px;
+  margin: 40px auto 80px;
+  padding: 38px;
+  background-color: white;
+  border-radius: 28px;
+  box-shadow: 0 12px 32px rgba(11, 31, 58, 0.12);
+}
+
+.buscador h2,
+.filtros-horarios h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.buscador form,
+.filtros-horarios form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: end;
+}
+
+.campo label,
+.grupo-input label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #42526b;
+}
+
+.campo select,
+.campo input,
+.grupo-input input,
+.grupo-input select,
+.grupo-input textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccd5df;
+  border-radius: 14px;
+  font-size: 15px;
+  background-color: #f9fafc;
+}
+
+.accesos {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.accesos h2 {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.accesos > p {
+  color: #42526b;
+  max-width: 660px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+}
+
+.cards-grid,
+.recorridos-grid,
+.paradas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card,
+.recorrido-card,
+.parada-card,
+.servicio-card,
+.horario-card,
+.info-card {
+  background: white;
+  border-radius: 26px;
+  padding: 30px 24px;
+  box-shadow: 0 10px 28px rgba(11, 31, 58, 0.1);
+  transition: 0.3s;
+}
+
+.card:hover,
+.recorrido-card:hover,
+.parada-card:hover,
+.servicio-card:hover,
+.horario-card:hover {
+  transform: translateY(-6px);
+}
+
+.icono,
+.card-icono,
+.parada-icono,
+.servicio-icono {
+  width: 60px;
+  height: 60px;
+  background-color: #e8f4ff;
+  color: #0b1f3a;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.card .icono {
+  margin: 0 auto 18px;
+}
+
+.card h3,
+.recorrido-card h3,
+.parada-card h3,
+.servicio-card h3,
+.horario-card h3,
+.info-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p,
+.recorrido-card p,
+.parada-card p,
+.servicio-card p,
+.horario-card p,
+.info-card p {
+  color: #42526b;
+}
+
+.beneficios {
+  background-color: #0b1f3a;
+  color: white;
+  padding: 50px 40px;
+}
+
+.beneficios-contenedor {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.beneficio {
+  padding: 20px;
+}
+
+.beneficio span {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.beneficio p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* PANELES */
+
+.hero-panel,
+.horarios-resumen,
+.paradas-panel,
+.servicios-panel,
+.contacto-panel {
+  background: linear-gradient(135deg, #0b1f3a, #1d3f66);
+  color: white;
+  padding: 34px;
+  border-radius: 30px;
+  box-shadow: 0 18px 40px rgba(11, 31, 58, 0.22);
+}
+
+.hero-panel h3,
+.horarios-resumen h3,
+.paradas-panel h3,
+.servicios-panel h3,
+.contacto-panel h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.ruta-mini,
+.resumen-item,
+.estado-item,
+.panel-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  padding: 18px;
+  border-radius: 18px;
+  margin-top: 14px;
+}
+
+.estado {
+  background: #e8f4ff;
+  color: #0b1f3a;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.estado-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #4cff7b;
+}
+
+/* RECORRIDOS / PARADAS */
+
+.contenido,
+.paradas-grid-section,
+.servicios-grid-section,
+.tabla-section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 40px;
+}
+
+.datos-ruta,
+.parada-info {
+  border-top: 1px solid #e1e7ee;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #42526b;
+}
+
+.mapa-section,
+.mapa-paradas,
+.experiencia-section {
+  max-width: 1200px;
+  margin: 20px auto 90px;
+  padding: 40px;
+  background: white;
+  border-radius: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 12px 32px rgba(11,31,58,0.1);
+}
+
+.mapa-texto h2,
+.experiencia-texto h2 {
+  font-size: 40px;
+  margin-bottom: 18px;
+}
+
+.mapa-texto p,
+.experiencia-texto p {
+  color: #42526b;
+  margin-bottom: 26px;
+}
+
+.referencias,
+.experiencia-lista,
+.mapa-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.referencia,
+.experiencia-item,
+.mapa-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.color-dot,
+.punto-ref {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #ff6b4a;
+}
+
+.mapa-visual,
+.mapa-falso {
+  position: relative;
+  min-height: 360px;
+  background: #eef3f8;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.mapa-linea,
+.linea-mapa {
+  position: absolute;
+  left: 18%;
+  top: 18%;
+  width: 60%;
+  height: 60%;
+  border-left: 5px solid #0b1f3a;
+  border-bottom: 5px solid #0b1f3a;
+  border-radius: 0 0 0 40px;
+}
+
+.mapa-parada,
+.parada-mapa,
+.punto {
+  position: absolute;
+  background: #ff6b4a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.p1, .parada-1, .punto-1 { left: 8%; top: 12%; }
+.p2, .parada-2, .punto-2 { left: 28%; top: 38%; }
+.p3, .parada-3, .punto-3 { left: 44%; top: 62%; }
+.p4, .parada-4, .punto-4 { right: 10%; bottom: 14%; }
+
+/* HORARIOS */
+
+.tabla-contenedor {
+  background: white;
+  border-radius: 28px;
+  overflow-x: auto;
+  box-shadow: 0 12px 32px rgba(11,31,58,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+th {
+  background: #0b1f3a;
+  color: white;
+  text-align: left;
+  padding: 18px;
+}
+
+td {
+  padding: 18px;
+  border-bottom: 1px solid #e1e7ee;
+  color: #42526b;
+}
+
+tbody tr:hover {
+  background: #f4f6f8;
+}
+
+.horarios-cards,
+.servicios-grid {
+  max-width: 1200px;
+  margin: 0 auto 90px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* SERVICIOS */
+
+.experiencia-item span,
+.mapa-item span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ff6b4a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.visual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.visual-card {
+  background: #eef3f8;
+  border-radius: 24px;
+  padding: 28px;
+  text-align: center;
+}
+
+.visual-card span {
+  font-size: 34px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.visual-card.grande {
+  background: linear-gradient(135deg,#0b1f3a,#1d3f66);
+  color: white;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTACTO */
+
+.contacto-contenido {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+}
+
+.formulario-card {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 12px 32px rgba(11,31,58,0.1);
+}
+
+.formulario-card h2 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.formulario-card p {
+  color: #42526b;
+  margin-bottom: 30px;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formulario-contacto button {
+  border: none;
+  background: #ff6b4a;
+  color: white;
+  padding: 16px;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.info-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-card span {
+  font-size: 34px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: #061426;
+  color: white;
+  padding: 70px 60px 25px;
+}
+
+.footer-contenedor {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 45px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.footer-logo .logo-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+}
+
+.footer-marca p {
+  color: rgba(255,255,255,0.7);
+  max-width: 330px;
+}
+
+.footer-columna h4 {
+  margin-bottom: 18px;
+  color: #ff6b4a;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-columna ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgba(255,255,255,0.72);
+  font-size: 15px;
+}
+
+.footer-columna a:hover {
+  color: #ff6b4a;
+}
+
+.newsletter {
+  display: flex;
+  margin-top: 14px;
+  gap: 8px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+}
+
+.newsletter button {
+  border: none;
+  background-color: #ff6b4a;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 45px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .header {
+    padding: 18px 28px;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero,
+  .page-hero,
+  .horarios-hero,
+  .paradas-hero,
+  .servicios-hero,
+  .contacto-hero,
+  .mapa-section,
+  .mapa-paradas,
+  .experiencia-section,
+  .contacto-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .buscador form,
+  .filtros-horarios form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards-grid,
+  .recorridos-grid,
+  .paradas-grid,
+  .beneficios-contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .servicios-grid,
+  .horarios-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-contenedor {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero,
+  .page-hero,
+  .horarios-hero,
+  .paradas-hero,
+  .servicios-hero,
+  .contacto-hero,
+  .accesos,
+  .contenido,
+  .paradas-grid-section,
+  .servicios-grid-section,
+  .tabla-section,
+  .horarios-cards,
+  .servicios-grid,
+  .contacto-contenido,
+  .mapa-section,
+  .mapa-paradas,
+  .experiencia-section {
+    padding: 0 22px;
+  }
+
+  .buscador,
+  .filtros-horarios {
+    margin: 30px 22px 60px;
+    padding: 28px 22px;
+  }
+
+  .buscador form,
+  .filtros-horarios form,
+  .cards-grid,
+  .recorridos-grid,
+  .paradas-grid,
+  .beneficios-contenedor,
+  .footer-contenedor,
+  .visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 50px 24px 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
