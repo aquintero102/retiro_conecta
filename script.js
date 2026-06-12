@@ -1,6 +1,91 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // =========================
+  // LOADER PROFESIONAL
+  // =========================
+  const loader = document.createElement("div");
+  loader.className = "loader-overlay";
+  loader.innerHTML = `
+    <div class="loader-card">
+      <div class="loader-spinner"></div>
+      <p>Cargando...</p>
+      <span class="loader-subtexto">Preparando la información</span>
+      <div class="loader-barra"><span></span></div>
+    </div>
+  `;
+  document.body.appendChild(loader);
+
+  let loaderTimeout;
+
+  function showLoader(text = "Cargando...", subtext = "Preparando la información", duration = 900) {
+    const loaderText = loader.querySelector("p");
+    const loaderSubtext = loader.querySelector(".loader-subtexto");
+
+    loaderText.textContent = text;
+    loaderSubtext.textContent = subtext;
+    loader.classList.add("activo");
+
+    clearTimeout(loaderTimeout);
+
+    if (duration) {
+      loaderTimeout = setTimeout(() => {
+        hideLoader();
+      }, duration);
+    }
+  }
+
+  function hideLoader() {
+    loader.classList.remove("activo");
+  }
+
+  // Loader al entrar a la página, como una web profesional.
+  showLoader("Cargando RetiroConecta...", "Inicializando la experiencia", 650);
+
+  // Loader al hacer clic en links internos o externos.
+  document.querySelectorAll("a[href]").forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+
+      if (!href || href === "#" || href.startsWith("mailto:") || href.startsWith("tel:")) {
+        return;
+      }
+
+      e.preventDefault();
+
+      const isExternal = href.startsWith("http");
+      const message = isExternal ? "Abriendo ruta seleccionada..." : "Cargando sección...";
+      const submessage = isExternal ? "Redirigiendo al proyecto correspondiente" : "Preparando el contenido";
+
+      showLoader(message, submessage, null);
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 750);
+    });
+  });
+
+  // Loader cada vez que se selecciona una opción o fecha.
+  document.querySelectorAll("select, input[type='date']").forEach(elemento => {
+    elemento.addEventListener("change", () => {
+      const valor = elemento.value;
+      const texto = valor && !valor.toLowerCase().includes("seleccionar")
+        ? `Cargando ${valor}...`
+        : "Cargando selección...";
+
+      showLoader(texto, "Actualizando datos disponibles", 850);
+    });
+  });
+
+  // Loader visual al presionar botones comunes.
+  document.querySelectorAll("button, .btn-principal, .btn-secundario, .btn-card").forEach(elemento => {
+    elemento.addEventListener("click", () => {
+      if (elemento.closest("form")) return;
+      showLoader("Procesando acción...", "Un momento, por favor", 750);
+    });
+  });
+
+
+  // =========================
   // NAVBAR SHADOW ON SCROLL
   // =========================
   const header = document.querySelector(".header");
@@ -56,7 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      showToast(`Buscando viajes hacia ${destino}...`);
+      showLoader(`Buscando viajes hacia ${destino}...`, "Consultando rutas y horarios", 1200);
+      setTimeout(() => showToast(`Resultados cargados para ${destino}`), 1200);
     });
   }
 
@@ -69,7 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (filtroHorarios) {
     filtroHorarios.addEventListener("submit", function(e){
       e.preventDefault();
-      showToast("Horarios actualizados");
+      showLoader("Actualizando horarios...", "Filtrando la información seleccionada", 1200);
+      setTimeout(() => showToast("Horarios actualizados"), 1200);
     });
   }
 
@@ -97,8 +184,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      showToast("Consulta enviada correctamente");
-      contactoForm.reset();
+      showLoader("Enviando consulta...", "Procesando tu mensaje", 1200);
+      setTimeout(() => {
+        showToast("Consulta enviada correctamente");
+        contactoForm.reset();
+      }, 1200);
     });
   }
 
@@ -142,17 +232,20 @@ document.addEventListener("DOMContentLoaded", () => {
   let dark = false;
 
   darkButton.addEventListener("click", () => {
+    showLoader("Cambiando modo visual...", "Aplicando preferencias", 450);
     dark = !dark;
 
-    if (dark) {
-      document.body.style.background = "#121212";
-      document.body.style.color = "white";
-      darkButton.textContent = "☀️";
-    } else {
-      document.body.style.background = "#f4f6f8";
-      document.body.style.color = "#0b1f3a";
-      darkButton.textContent = "🌙";
-    }
+    setTimeout(() => {
+      if (dark) {
+        document.body.style.background = "#121212";
+        document.body.style.color = "white";
+        darkButton.textContent = "☀️";
+      } else {
+        document.body.style.background = "#f4f6f8";
+        document.body.style.color = "#0b1f3a";
+        darkButton.textContent = "🌙";
+      }
+    }, 250);
   });
 
 
