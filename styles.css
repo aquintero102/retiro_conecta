@@ -932,3 +932,80 @@ tbody tr:hover {
     flex-direction: column;
   }
 }
+
+
+/* LINKS EXTERNOS DE RUTAS */
+.link-ruta,
+.link-tabla,
+.link-titulo {
+  color: inherit;
+  font-weight: bold;
+}
+
+.link-ruta:hover,
+.link-tabla:hover,
+.link-titulo:hover {
+  color: #ff6b4a;
+}
+
+.rutas-externas {
+  max-width: 1200px;
+  margin: 50px auto 80px;
+  padding: 0 40px;
+}
+
+.rutas-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ruta-link-card {
+  background: white;
+  border-radius: 24px;
+  padding: 26px 22px;
+  box-shadow: 0 10px 28px rgba(11, 31, 58, 0.1);
+  transition: 0.3s;
+  border-left: 5px solid #ff6b4a;
+}
+
+.ruta-link-card:hover {
+  transform: translateY(-6px);
+}
+
+.ruta-link-card strong {
+  display: block;
+  color: #ff6b4a;
+  font-size: 15px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ruta-link-card span {
+  display: block;
+  color: #0b1f3a;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.p5 {
+  right: 10%;
+  bottom: 28%;
+}
+
+@media (max-width: 950px) {
+  .rutas-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .rutas-externas {
+    padding: 0 22px;
+  }
+
+  .rutas-links-grid {
+    grid-template-columns: 1fr;
+  }
+}
