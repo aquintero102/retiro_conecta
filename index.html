@@ -66,6 +66,43 @@
       </form>
     </section>
 
+    <section class="simulador-viaje" aria-labelledby="simulador-titulo">
+      <div class="simulador-encabezado">
+        <span class="simulador-kicker">Planificador inteligente</span>
+        <h2 id="simulador-titulo">Simulá tu viaje desde Retiro</h2>
+        <p>Elegí destino, día y horario. El sistema estima la salida recomendada, la llegada aproximada y el estado del servicio para organizar mejor tu recorrido.</p>
+      </div>
+
+      <div class="simulador-grid">
+        <form class="simulador-formulario">
+          <div class="campo"><label for="simDestino">Destino</label><select id="simDestino"><option value="">Seleccionar destino</option><option value="La Plata">La Plata</option><option value="Luján">Luján</option><option value="Zárate">Zárate</option><option value="Pilar">Pilar</option></select></div>
+          <div class="campo"><label for="simDia">Día de viaje</label><select id="simDia"><option value="Lunes a viernes">Lunes a viernes</option><option value="Sábado">Sábado</option><option value="Domingo o feriado">Domingo o feriado</option></select></div>
+          <div class="campo"><label for="simHora">Hora en la que querés salir</label><input type="time" id="simHora" value="08:00"></div>
+          <button type="submit" class="btn-principal">Simular viaje</button>
+        </form>
+
+        <div class="simulador-resultado" aria-live="polite">
+          <div class="resultado-superior">
+            <span class="estado-servicio estado-verde">Servicio normal</span>
+            <span class="resultado-ruta">Retiro → destino</span>
+          </div>
+
+          <div class="linea-viaje" aria-hidden="true">
+            <span class="linea-punto activo">Retiro</span>
+            <span class="linea-tramo"></span>
+            <span class="linea-punto">Destino</span>
+          </div>
+
+          <div class="resultado-datos">
+            <div><strong>Duración estimada</strong><span id="resDuracion">-</span></div>
+            <div><strong>Próxima salida</strong><span id="resSalida">-</span></div>
+            <div><strong>Llegada aproximada</strong><span id="resLlegada">-</span></div>
+            <div><strong>Recomendación</strong><span id="resConsejo">Seleccioná un destino para comenzar.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="imagen-contexto">
       <img src="assets/rutas-movilidad.svg" alt="Ilustración de rutas conectadas desde Retiro" class="imagen-contexto-media">
       <div class="imagen-contexto-texto">

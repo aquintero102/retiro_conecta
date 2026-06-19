@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // SCROLL ANIMATIONS
   // =========================
   const animatedElements = document.querySelectorAll(
-    ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card, .info-bloque, .info-link-card"
+    ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card, .info-bloque, .info-link-card, .simulador-viaje"
   );
 
   const observer = new IntersectionObserver((entries) => {
@@ -143,6 +143,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
       showLoader(`Buscando viajes hacia ${destino}...`, "Consultando rutas y horarios", 1200);
       setTimeout(() => showToast(`Resultados cargados para ${destino}`), 1200);
+    });
+  }
+
+
+  // =========================
+  // SIMULADOR DE VIAJE
+  // =========================
+  const simuladorForm = document.querySelector(".simulador-formulario");
+
+  if (simuladorForm) {
+    const datosViaje = {
+      "La Plata": { duracion: 90, frecuencia: 20, perfil: "ruta universitaria y administrativa" },
+      "Luján": { duracion: 105, frecuencia: 30, perfil: "ruta turística y familiar" },
+      "Zárate": { duracion: 110, frecuencia: 35, perfil: "ruta laboral e industrial" },
+      "Pilar": { duracion: 80, frecuencia: 20, perfil: "ruta residencial, educativa y comercial" }
+    };
+
+    const estadoServicio = [
+      { texto: "Servicio normal", clase: "estado-verde", demora: 0, progreso: "46%" },
+      { texto: "Demoras leves", clase: "estado-amarillo", demora: 8, progreso: "62%" },
+      { texto: "Alta demanda", clase: "estado-rojo", demora: 15, progreso: "78%" }
+    ];
+
+    const formatearHora = (minutosTotales) => {
+      const minutosDia = ((minutosTotales % 1440) + 1440) % 1440;
+      const horas = Math.floor(minutosDia / 60).toString().padStart(2, "0");
+      const minutos = (minutosDia % 60).toString().padStart(2, "0");
+      return `${horas}:${minutos}`;
+    };
+
+    const horaAMinutos = (hora) => {
+      const [h, m] = hora.split(":").map(Number);
+      return (h * 60) + m;
+    };
+
+    simuladorForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const destino = document.querySelector("#simDestino")?.value;
+      const dia = document.querySelector("#simDia")?.value;
+      const hora = document.querySelector("#simHora")?.value || "08:00";
+
+      if (!destino) {
+        showToast("Seleccioná un destino para simular el viaje");
+        return;
+      }
+
+      const datos = datosViaje[destino];
+      const estado = estadoServicio[Math.floor(Math.random() * estadoServicio.length)];
+      const salidaBase = horaAMinutos(hora);
+      const salidaRecomendada = salidaBase - 15;
+      const llegada = salidaBase + datos.duracion + estado.demora;
+      const duracionTexto = estado.demora > 0
+        ? `${datos.duracion + estado.demora} min, con demora estimada`
+        : `${datos.duracion} min`;
+
+      const estadoElemento = document.querySelector(".estado-servicio");
+      const rutaElemento = document.querySelector(".resultado-ruta");
+      const destinoLinea = document.querySelector(".linea-punto:not(.activo)");
+      const lineaTramo = document.querySelector(".linea-tramo");
+
+      estadoElemento.className = `estado-servicio ${estado.clase}`;
+      estadoElemento.textContent = estado.texto;
+      rutaElemento.textContent = `Retiro → ${destino}`;
+      destinoLinea.textContent = destino;
+      lineaTramo.style.setProperty("--progreso-viaje", estado.progreso);
+
+      document.querySelector("#resDuracion").textContent = duracionTexto;
+      document.querySelector("#resSalida").textContent = formatearHora(salidaBase);
+      document.querySelector("#resLlegada").textContent = formatearHora(llegada);
+      document.querySelector("#resConsejo").textContent = `Llegá a Retiro a las ${formatearHora(salidaRecomendada)}. Es una ${datos.perfil} y el día seleccionado es ${dia.toLowerCase()}.`;
+
+      showLoader(`Simulando viaje a ${destino}...`, "Calculando salida, llegada y estado del servicio", 900);
+      setTimeout(() => showToast(`Viaje Retiro → ${destino} simulado correctamente`), 950);
     });
   }
 

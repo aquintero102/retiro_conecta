@@ -1570,7 +1570,6 @@ body.dark-mode .loader-barra {
 }
 
 body.dark-mode .nav-links {
-  background: none;
   color: #ffffff;
 }
 
@@ -1817,5 +1816,266 @@ body.dark-mode .hero-ilustrada .imagen-destacada {
 
   .visual-card-imagen img {
     min-height: 220px;
+  }
+}
+
+
+/* SIMULADOR DE VIAJE */
+.simulador-viaje {
+  max-width: 1120px;
+  margin: 0 auto 80px;
+  padding: 40px;
+  background: linear-gradient(135deg, #ffffff, #edf5ff);
+  border-radius: 34px;
+  box-shadow: 0 16px 38px rgba(11, 31, 58, 0.12);
+}
+
+.simulador-encabezado {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.simulador-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ff6b4a;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.simulador-encabezado h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.simulador-encabezado p {
+  color: #42526b;
+  font-size: 18px;
+}
+
+.simulador-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.simulador-formulario,
+.simulador-resultado {
+  background: #ffffff;
+  border: 1px solid #dce6f2;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 10px 28px rgba(11,31,58,0.08);
+}
+
+.simulador-formulario {
+  display: grid;
+  gap: 18px;
+}
+
+.simulador-formulario .btn-principal {
+  width: 100%;
+}
+
+.resultado-superior {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.estado-servicio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.estado-servicio::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.estado-verde {
+  background: #e8fff0;
+  color: #16723a;
+}
+
+.estado-amarillo {
+  background: #fff6d8;
+  color: #8a6200;
+}
+
+.estado-rojo {
+  background: #ffe6e0;
+  color: #b23a22;
+}
+
+.resultado-ruta {
+  color: #0b1f3a;
+  font-weight: 800;
+}
+
+.linea-viaje {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.linea-punto {
+  background: #0b1f3a;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.linea-punto.activo {
+  background: #ff6b4a;
+}
+
+.linea-tramo {
+  position: relative;
+  height: 8px;
+  background: #d7e2ee;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.linea-tramo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--progreso-viaje, 42%);
+  background: linear-gradient(90deg, #ff6b4a, #0b1f3a);
+  border-radius: inherit;
+  transition: width 0.7s ease;
+}
+
+.resultado-datos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.resultado-datos div {
+  background: #f4f6f8;
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.resultado-datos strong,
+.resultado-datos span {
+  display: block;
+}
+
+.resultado-datos strong {
+  color: #42526b;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.resultado-datos span {
+  color: #0b1f3a;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+body.dark-mode .simulador-viaje {
+  background: linear-gradient(135deg, #0b1f3a, #102b49);
+  color: #f8fafc;
+  box-shadow: 0 16px 38px rgba(0,0,0,0.38);
+}
+
+body.dark-mode .simulador-encabezado p,
+body.dark-mode .resultado-datos strong {
+  color: #d8e4f2;
+}
+
+body.dark-mode .simulador-formulario,
+body.dark-mode .simulador-resultado,
+body.dark-mode .resultado-datos div {
+  background: #0f2036;
+  border-color: #36516f;
+  color: #f8fafc;
+}
+
+body.dark-mode .resultado-ruta,
+body.dark-mode .resultado-datos span {
+  color: #f8fafc;
+}
+
+body.dark-mode .linea-punto {
+  background: #173a62;
+}
+
+body.dark-mode .linea-punto.activo {
+  background: #ff7a59;
+  color: #061426;
+}
+
+body.dark-mode .linea-tramo {
+  background: #294767;
+}
+
+body.dark-mode .estado-verde {
+  background: #123d2a;
+  color: #7cf0a5;
+}
+
+body.dark-mode .estado-amarillo {
+  background: #47380d;
+  color: #ffd66b;
+}
+
+body.dark-mode .estado-rojo {
+  background: #4a1e18;
+  color: #ff9c87;
+}
+
+@media (max-width: 950px) {
+  .simulador-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .simulador-viaje {
+    margin: 0 22px 60px;
+    padding: 24px 20px;
+  }
+
+  .resultado-superior,
+  .linea-viaje,
+  .resultado-datos {
+    grid-template-columns: 1fr;
+  }
+
+  .linea-tramo {
+    height: 46px;
+    width: 8px;
+    justify-self: center;
+  }
+
+  .linea-tramo::after {
+    width: 100%;
+    height: var(--progreso-viaje, 42%);
+    background: linear-gradient(180deg, #ff6b4a, #0b1f3a);
   }
 }
