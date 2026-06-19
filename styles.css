@@ -1570,13 +1570,12 @@ body.dark-mode .loader-barra {
 }
 
 body.dark-mode .nav-links {
-  background: #0f2036;
+  background: none;
   color: #ffffff;
 }
 
 body.dark-mode .nav-links a:hover,
 body.dark-mode .nav-links .activo {
-  background: #173a62;
   color: #ffb199;
 }
 
