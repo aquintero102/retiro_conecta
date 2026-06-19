@@ -2079,3 +2079,98 @@ body.dark-mode .estado-rojo {
     background: linear-gradient(180deg, #ff6b4a, #0b1f3a);
   }
 }
+
+/* AJUSTE FINAL: hamburguesa visible en responsive y modo oscuro */
+@media (max-width: 768px) {
+  .menu-toggle {
+    background: #ffffff;
+    border: 2px solid #ff6b4a;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  }
+
+  .menu-toggle span {
+    background: #0b1f3a;
+  }
+
+  body.modo-oscuro .menu-toggle,
+  body.dark-mode .menu-toggle,
+  body.dark .menu-toggle {
+    background: #ff6b4a;
+    border-color: #ffffff;
+    box-shadow: 0 8px 22px rgba(255, 107, 74, 0.35);
+  }
+
+  body.modo-oscuro .menu-toggle span,
+  body.dark-mode .menu-toggle span,
+  body.dark .menu-toggle span {
+    background: #ffffff;
+  }
+}
+
+/* AJUSTE FINAL: contraste de links dentro del menú hamburguesa */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-links.activo,
+  .nav-links.abierto,
+  .nav-links.open {
+    background: #0b1f3a;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .nav-links li,
+  .nav-links.activo li,
+  .nav-links.abierto li,
+  .nav-links.open li {
+    background: transparent;
+  }
+
+  .nav-links a,
+  .nav-links.activo a,
+  .nav-links.abierto a,
+  .nav-links.open a {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    opacity: 1;
+  }
+
+  .nav-links a:hover,
+  .nav-links .activo,
+  .nav-links.activo a:hover,
+  .nav-links.abierto a:hover,
+  .nav-links.open a:hover {
+    color: #ffffff !important;
+    background: #ff6b4a;
+    border-color: #ff6b4a;
+  }
+
+  body.modo-oscuro .nav-links,
+  body.dark-mode .nav-links,
+  body.dark .nav-links,
+  body.modo-oscuro .nav-links.activo,
+  body.modo-oscuro .nav-links.abierto,
+  body.modo-oscuro .nav-links.open {
+    background: #071426;
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  body.modo-oscuro .nav-links a,
+  body.dark-mode .nav-links a,
+  body.dark .nav-links a {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  body.modo-oscuro .nav-links a:hover,
+  body.modo-oscuro .nav-links .activo,
+  body.dark-mode .nav-links a:hover,
+  body.dark-mode .nav-links .activo,
+  body.dark .nav-links a:hover,
+  body.dark .nav-links .activo {
+    color: #ffffff !important;
+    background: #ff6b4a;
+    border-color: #ff6b4a;
+  }
+}
