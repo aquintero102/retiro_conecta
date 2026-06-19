@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Loader visual al presionar botones comunes.
   document.querySelectorAll("button, .btn-principal, .btn-secundario, .btn-card").forEach(elemento => {
     elemento.addEventListener("click", () => {
-      if (elemento.closest("form")) return;
+      if (elemento.closest("form") || elemento.classList.contains("menu-toggle") || elemento.classList.contains("modo-toggle")) return;
       showLoader("Procesando acción...", "Un momento, por favor", 750);
     });
   });
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (!email.includes("@")) {
-        showToast("Email inválido");
+        showToast("Correo electrónico inválido");
         return;
       }
 
@@ -210,42 +210,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =========================
+  // MENÚ HAMBURGUESA RESPONSIVE
+  // =========================
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      const abierto = navLinks.classList.toggle("abierto");
+      menuToggle.classList.toggle("abierto", abierto);
+      menuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+      menuToggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("abierto");
+        menuToggle.classList.remove("abierto");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú de navegación");
+      });
+    });
+  }
+
+
+  // =========================
   // DARK MODE
   // =========================
   const darkButton = document.createElement("button");
+  darkButton.type = "button";
+  darkButton.className = "modo-toggle";
+  darkButton.setAttribute("aria-label", "Activar modo oscuro");
   darkButton.textContent = "🌙";
-  darkButton.style.position = "fixed";
-  darkButton.style.bottom = "20px";
-  darkButton.style.right = "20px";
-  darkButton.style.width = "55px";
-  darkButton.style.height = "55px";
-  darkButton.style.border = "none";
-  darkButton.style.borderRadius = "50%";
-  darkButton.style.background = "#0b1f3a";
-  darkButton.style.color = "white";
-  darkButton.style.cursor = "pointer";
-  darkButton.style.fontSize = "20px";
-  darkButton.style.zIndex = "999";
 
   document.body.appendChild(darkButton);
 
-  let dark = false;
+  const preferenciaGuardada = localStorage.getItem("retiroconecta-dark-mode");
+  let dark = preferenciaGuardada === "true";
+
+  function aplicarModoOscuro() {
+    document.body.classList.toggle("dark-mode", dark);
+    darkButton.textContent = dark ? "☀️" : "🌙";
+    darkButton.setAttribute("aria-label", dark ? "Desactivar modo oscuro" : "Activar modo oscuro");
+    localStorage.setItem("retiroconecta-dark-mode", String(dark));
+  }
+
+  aplicarModoOscuro();
 
   darkButton.addEventListener("click", () => {
     showLoader("Cambiando modo visual...", "Aplicando preferencias", 450);
     dark = !dark;
-
-    setTimeout(() => {
-      if (dark) {
-        document.body.style.background = "#121212";
-        document.body.style.color = "white";
-        darkButton.textContent = "☀️";
-      } else {
-        document.body.style.background = "#f4f6f8";
-        document.body.style.color = "#0b1f3a";
-        darkButton.textContent = "🌙";
-      }
-    }, 250);
+    setTimeout(aplicarModoOscuro, 250);
   });
 
 

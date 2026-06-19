@@ -21,6 +21,28 @@ ul {
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+a,
+button,
+input,
+select,
+textarea {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #ffb199;
+  outline-offset: 3px;
+}
+
 /* HEADER */
 
 .header {
@@ -92,6 +114,40 @@ ul {
   border-radius: 999px;
   font-size: 14px;
   font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-toggle span {
+  width: 23px;
+  height: 3px;
+  border-radius: 999px;
+  background: #ffffff;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle.abierto span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.abierto span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.abierto span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* BOTONES */
@@ -839,16 +895,66 @@ tbody tr:hover {
 
 @media (max-width: 950px) {
   .header {
-    padding: 18px 28px;
+    padding: 14px 22px;
   }
 
   .navbar {
-    flex-direction: column;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .logo {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .logo h1 {
+    font-size: 21px;
+  }
+
+  .logo p {
+    font-size: 11px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .btn-cuenta {
+    display: none;
   }
 
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 16px 35px rgba(0,0,0,0.22);
+    color: #0b1f3a;
+  }
+
+  .nav-links.abierto {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  .nav-links a:hover,
+  .nav-links .activo {
+    background: #fff0eb;
+    color: #d84d2f;
   }
 
   .hero,
@@ -930,6 +1036,46 @@ tbody tr:hover {
 
   .footer-bottom {
     flex-direction: column;
+  }
+
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .hero,
+  .page-hero,
+  .horarios-hero,
+  .paradas-hero,
+  .servicios-hero,
+  .contacto-hero,
+  .info-hero {
+    margin: 34px auto;
+  }
+
+  .hero-texto h2,
+  .page-hero-texto h2,
+  .horarios-hero-texto h2,
+  .paradas-hero-texto h2,
+  .servicios-hero-texto h2,
+  .contacto-texto h2,
+  .info-hero-texto h2 {
+    font-size: clamp(34px, 11vw, 46px);
+  }
+
+  .section-title h2,
+  .mapa-texto h2,
+  .experiencia-texto h2,
+  .formulario-card h2 {
+    font-size: 30px;
+  }
+
+  .mapa-section,
+  .mapa-paradas,
+  .experiencia-section {
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 }
 
@@ -1261,5 +1407,221 @@ tbody tr:hover {
 
   .info-links-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* MODO OSCURO: contraste corregido también en responsive */
+body.dark-mode {
+  background: #07111f;
+  color: #f8fafc;
+}
+
+body.dark-mode .header,
+body.dark-mode .footer,
+body.dark-mode .mockup-banner,
+body.dark-mode th {
+  background-color: #020817;
+}
+
+body.dark-mode .hero-texto p,
+body.dark-mode .page-hero-texto p,
+body.dark-mode .horarios-hero-texto p,
+body.dark-mode .paradas-hero-texto p,
+body.dark-mode .servicios-hero-texto p,
+body.dark-mode .contacto-texto p,
+body.dark-mode .section-title p,
+body.dark-mode .accesos > p,
+body.dark-mode .card p,
+body.dark-mode .recorrido-card p,
+body.dark-mode .parada-card p,
+body.dark-mode .servicio-card p,
+body.dark-mode .horario-card p,
+body.dark-mode .info-card p,
+body.dark-mode .formulario-card p,
+body.dark-mode .mapa-texto p,
+body.dark-mode .experiencia-texto p,
+body.dark-mode .info-hero-texto p,
+body.dark-mode .info-bloque p,
+body.dark-mode .info-link-card p,
+body.dark-mode .campo label,
+body.dark-mode .grupo-input label,
+body.dark-mode td,
+body.dark-mode .datos-ruta,
+body.dark-mode .parada-info,
+body.dark-mode .loader-subtexto {
+  color: #d8e4f2;
+}
+
+body.dark-mode .card,
+body.dark-mode .recorrido-card,
+body.dark-mode .parada-card,
+body.dark-mode .servicio-card,
+body.dark-mode .horario-card,
+body.dark-mode .info-card,
+body.dark-mode .buscador,
+body.dark-mode .filtros-horarios,
+body.dark-mode .formulario-card,
+body.dark-mode .mapa-section,
+body.dark-mode .mapa-paradas,
+body.dark-mode .experiencia-section,
+body.dark-mode .ruta-link-card,
+body.dark-mode .info-bloque,
+body.dark-mode .info-link-card,
+body.dark-mode .mockup,
+body.dark-mode .tabla-contenedor,
+body.dark-mode .info-kicker,
+body.dark-mode .hero-tags span,
+body.dark-mode .hero-etiquetas span,
+body.dark-mode .contacto-tags span,
+body.dark-mode .visual-card,
+body.dark-mode .loader-card {
+  background: #0f2036;
+  color: #f8fafc;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.38);
+}
+
+body.dark-mode .hero-panel,
+body.dark-mode .horarios-resumen,
+body.dark-mode .paradas-panel,
+body.dark-mode .servicios-panel,
+body.dark-mode .contacto-panel,
+body.dark-mode .info-panel,
+body.dark-mode .hero-imagen,
+body.dark-mode .visual-card.grande {
+  background: linear-gradient(135deg, #020817, #12365d);
+  color: #ffffff;
+}
+
+body.dark-mode .campo select,
+body.dark-mode .campo input,
+body.dark-mode .grupo-input input,
+body.dark-mode .grupo-input select,
+body.dark-mode .grupo-input textarea,
+body.dark-mode .newsletter input {
+  background: #07111f;
+  color: #f8fafc;
+  border-color: #36516f;
+}
+
+body.dark-mode .campo select::placeholder,
+body.dark-mode .campo input::placeholder,
+body.dark-mode .grupo-input input::placeholder,
+body.dark-mode .grupo-input textarea::placeholder,
+body.dark-mode .newsletter input::placeholder {
+  color: #9fb2c9;
+}
+
+body.dark-mode .btn-secundario {
+  border-color: #ffb199;
+  color: #ffffff;
+}
+
+body.dark-mode .btn-card,
+body.dark-mode .btn-principal,
+body.dark-mode .formulario-contacto button,
+body.dark-mode .newsletter button,
+body.dark-mode .btn-cuenta {
+  background: #ff7a59;
+  color: #061426;
+}
+
+body.dark-mode .icono,
+body.dark-mode .card-icono,
+body.dark-mode .parada-icono,
+body.dark-mode .servicio-icono,
+body.dark-mode .info-link-card span,
+body.dark-mode .estado {
+  background: #173a62;
+  color: #ffffff;
+}
+
+body.dark-mode .ruta-link-card span,
+body.dark-mode .link-ruta,
+body.dark-mode .link-tabla,
+body.dark-mode .link-titulo {
+  color: #ffffff;
+}
+
+body.dark-mode .mapa-visual,
+body.dark-mode .mapa-falso {
+  background: #102944;
+}
+
+body.dark-mode .mapa-linea,
+body.dark-mode .linea-mapa {
+  border-left-color: #ffb199;
+  border-bottom-color: #ffb199;
+}
+
+body.dark-mode tbody tr:hover {
+  background: #132b47;
+}
+
+body.dark-mode .mockup-top,
+body.dark-mode .mockup-card {
+  background: #142a46;
+}
+
+body.dark-mode .mockup-linea,
+body.dark-mode .dot,
+body.dark-mode .loader-barra {
+  background: #36516f;
+}
+
+body.dark-mode .nav-links {
+  background: #0f2036;
+  color: #ffffff;
+}
+
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links .activo {
+  background: #173a62;
+  color: #ffb199;
+}
+
+.modo-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background: #0b1f3a;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 999;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.24);
+}
+
+body.dark-mode .modo-toggle {
+  background: #ff7a59;
+  color: #061426;
+}
+
+@media (max-width: 600px) {
+  .modo-toggle {
+    right: 16px;
+    bottom: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .hero-botones .btn-principal,
+  .hero-botones .btn-secundario,
+  .btn-card,
+  .formulario-contacto button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tabla-contenedor {
+    border: 1px solid #dbe4ef;
+  }
+
+  body.dark-mode .tabla-contenedor {
+    border-color: #36516f;
   }
 }
