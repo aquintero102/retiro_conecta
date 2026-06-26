@@ -60,7 +60,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 18px;
 }
 
 .logo {
@@ -92,8 +92,8 @@ textarea:focus-visible {
 
 .nav-links {
   display: flex;
-  gap: 22px;
-  font-size: 15px;
+  gap: 16px;
+  font-size: 14px;
 }
 
 .nav-links a {
@@ -2364,4 +2364,65 @@ body.dark-mode .terminal-plano::before {
 
 body.dark-mode .chatbot-respuesta {
   color: #ffffff;
+}
+
+
+/* AJUSTES ENTREGA FINAL: página propia de consulta de viajes */
+.consulta-hero {
+  margin-bottom: 30px;
+}
+
+.consulta-panel .ruta-mini {
+  justify-content: space-between;
+}
+
+.consulta-apoyo,
+.consulta-rutas {
+  max-width: 1200px;
+  margin: 20px auto 90px;
+  padding: 0 40px;
+}
+
+.consulta-pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.consulta-paso span {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ff6b4a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .btn-cuenta {
+    padding: 9px 14px;
+  }
+}
+
+@media (max-width: 950px) {
+  .consulta-pasos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .consulta-apoyo,
+  .consulta-rutas {
+    padding: 0 22px;
+    margin-bottom: 60px;
+  }
 }

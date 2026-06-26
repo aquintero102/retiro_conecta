@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RetiroConecta | Inicio</title>
+  <title>RetiroConecta | Consulta de viajes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
+<header class="header">
     <nav class="navbar">
       <a href="index.html" class="logo">
         <div class="logo-icon">🚌</div>
@@ -18,8 +18,8 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="activo">Inicio</a></li>
-        <li><a href="consulta-viajes.html">Consulta de viajes</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="consulta-viajes.html" class="activo">Consulta de viajes</a></li>
         <li><a href="recorridos.html">Recorridos</a></li>
         <li><a href="horarios.html">Horarios</a></li>
         <li><a href="paradas.html">Paradas</a></li>
@@ -38,40 +38,26 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-texto">
-        <h2>Tu viaje,<br>nuestra prioridad</h2>
-        <p>RetiroConecta centraliza recorridos, horarios, paradas y servicios para mejorar la experiencia de quienes viajan desde la Terminal de Retiro hacia distintos destinos de la Provincia de Buenos Aires.</p>
-        <div class="hero-botones">
-          <a href="consulta-viajes.html" class="btn-principal">Consultar viaje</a>
-          <a href="recorridos.html" class="btn-secundario">Ver recorridos</a>
-        </div>
+    <section class="page-hero consulta-hero">
+      <div class="page-hero-texto">
+        <span class="simulador-kicker">Consulta de viajes</span>
+        <h2>Planificá tu salida desde Retiro</h2>
+        <p>Esta página centraliza la funcionalidad obligatoria de consulta de viajes. El usuario puede elegir un destino y recibir una recomendación clara para saber cómo llegar, desde qué plataforma salir y cuánto puede tardar o costar el recorrido.</p>
+        <div class="hero-tags"><span>🚌 Transporte recomendado</span><span>📍 Plataforma o sector</span><span>💳 Costo estimado</span></div>
       </div>
-
-      <div class="hero-imagen hero-ilustrada">
-        <img src="assets/hero-terminal.svg" alt="Ilustración de una terminal de transporte inteligente con colectivos y señalización digital" class="imagen-destacada">
-        <div class="hero-mini-card">
-          <strong>RetiroConecta</strong>
-          <span>Información clara para viajar mejor</span>
-        </div>
+      <div class="hero-panel consulta-panel">
+        <h3>Datos que informa</h3>
+        <div class="ruta-mini"><strong>Medio sugerido</strong><span class="estado">JS</span></div>
+        <div class="ruta-mini"><strong>Tiempo y llegada</strong><span class="estado">Estimado</span></div>
+        <div class="ruta-mini"><strong>Costo y plataforma</strong><span class="estado">Simulado</span></div>
       </div>
     </section>
 
-    <section class="buscador">
-      <h2>Buscá tu próximo destino</h2>
-      <form>
-        <div class="campo"><label for="origen">Origen</label><select id="origen"><option>Terminal de Retiro</option></select></div>
-        <div class="campo"><label for="destino">Destino</label><select id="destino"><option>Seleccionar destino</option><option>La Plata</option><option>Luján</option><option>Zárate</option><option>Pilar</option></select></div>
-        <div class="campo"><label for="fecha">Fecha</label><input type="date" id="fecha"></div>
-        <button type="submit" class="btn-principal">Buscar</button>
-      </form>
-    </section>
-
-    <section class="simulador-viaje" aria-labelledby="simulador-titulo">
+<section class="simulador-viaje" aria-labelledby="simulador-titulo">
       <div class="simulador-encabezado">
-        <span class="simulador-kicker">Planificador inteligente</span>
-        <h2 id="simulador-titulo">Simulá tu viaje desde Retiro</h2>
-        <p>Elegí destino, día y horario. El sistema informa transporte recomendado, plataforma o sector de salida, duración, costo estimado, llegada aproximada y estado del servicio con datos simulados.</p>
+        <span class="simulador-kicker">Consulta obligatoria de viajes</span>
+        <h2 id="simulador-titulo">Consultá cómo llegar a tu destino</h2>
+        <p>Elegí destino, día y horario. La consulta informa transporte recomendado, plataforma o sector de salida, tiempo estimado de viaje, costo estimado, próxima salida, llegada aproximada y estado del servicio con datos simulados mediante JavaScript.</p>
       </div>
 
       <div class="simulador-grid">
@@ -107,17 +93,23 @@
       </div>
     </section>
 
-    <section class="imagen-contexto">
-      <img src="assets/rutas-movilidad.svg" alt="Ilustración de rutas conectadas desde Retiro" class="imagen-contexto-media">
-      <div class="imagen-contexto-texto">
-        <span>Movilidad integrada</span>
-        <h2>Un sistema visual para entender el viaje antes de salir</h2>
-        <p>Las ilustraciones refuerzan la identidad del sitio sin sobrecargarlo: acompañan la información principal y ayudan a reconocer rutas, servicios y puntos de conexión.</p>
+    <section class="consulta-apoyo">
+      <div class="section-title">
+        <h2>Cómo funciona la consulta</h2>
+        <p>La información se genera con datos simulados para representar una experiencia real de búsqueda dentro del Centro de Transporte.</p>
+      </div>
+      <div class="consulta-pasos-grid">
+        <article class="info-card consulta-paso"><span>1</span><h3>Elegí destino</h3><p>Seleccioná La Plata, Luján, Zárate o Pilar como destino de salida desde Retiro.</p></article>
+        <article class="info-card consulta-paso"><span>2</span><h3>Indicá día y horario</h3><p>El sistema toma el horario de salida deseado y calcula una llegada aproximada.</p></article>
+        <article class="info-card consulta-paso"><span>3</span><h3>Leé la recomendación</h3><p>La respuesta muestra transporte, plataforma, duración, costo, próxima salida y consejo de llegada a la terminal.</p></article>
       </div>
     </section>
 
-    <section class="rutas-externas">
-      <div class="section-title"><h2>Proyectos por ruta</h2><p>Accedé directamente a la propuesta desarrollada para cada recorrido del sistema RetiroConecta.</p></div>
+    <section class="rutas-integradas consulta-rutas">
+      <div class="section-title">
+        <h2>Rutas integradas</h2>
+        <p>Desde esta consulta también se conecta con los sitios individuales de transporte desarrollados por el grupo.</p>
+      </div>
       <div class="rutas-links-grid">
         <a href="https://camilabraganza.github.io/RetiroConecta---Retiro---La-Plata/" target="_blank" rel="noopener" class="ruta-link-card"><strong>Ruta 1</strong><span>Retiro → La Plata</span></a>
         <a href="https://martinagiu2014-cyber.github.io/PAGINA-WEB-DE-TRANSPORTE/" target="_blank" rel="noopener" class="ruta-link-card"><strong>Ruta 2</strong><span>Retiro → Luján</span></a>
@@ -126,38 +118,9 @@
       </div>
     </section>
 
-    <section class="accesos">
-      <h2>Todo lo que necesitás para viajar</h2>
-      <p>Una plataforma pensada para consultar información de manera rápida, accesible y organizada antes de iniciar tu recorrido.</p>
-      <div class="cards-grid">
-        <a href="recorridos.html" class="card"><div class="icono">📍</div><h3>Recorridos</h3><p>Explorá los destinos disponibles desde Retiro.</p></a>
-        <a href="horarios.html" class="card"><div class="icono">🕒</div><h3>Horarios</h3><p>Consultá frecuencias y salidas del servicio.</p></a>
-        <a href="paradas.html" class="card"><div class="icono">🚏</div><h3>Paradas</h3><p>Encontrá estaciones y puntos de ascenso.</p></a>
-        <a href="servicios.html" class="card"><div class="icono">🎫</div><h3>Servicios</h3><p>Conocé accesibilidad, pagos y asistencia.</p></a>
-      </div>
-    </section>
-
-    <section class="info-accesos-home">
-      <div class="section-title"><h2>Información útil</h2><p>Accedé a las secciones de ayuda, accesibilidad y condiciones generales de la plataforma.</p></div>
-      <div class="info-links-grid">
-        <a href="preguntas-frecuentes.html" class="info-link-card"><span>❓</span><h3>Preguntas frecuentes</h3><p>Respuestas rápidas para usar RetiroConecta.</p></a>
-        <a href="accesibilidad.html" class="info-link-card"><span>♿</span><h3>Accesibilidad</h3><p>Criterios de navegación clara y responsive.</p></a>
-        <a href="terminos-condiciones.html" class="info-link-card"><span>📄</span><h3>Términos y condiciones</h3><p>Condiciones generales de uso del sitio.</p></a>
-        <a href="politica-privacidad.html" class="info-link-card"><span>🔒</span><h3>Política de privacidad</h3><p>Tratamiento básico de datos del proyecto.</p></a>
-      </div>
-    </section>
-
-    <section class="beneficios">
-      <div class="beneficios-contenedor">
-        <div class="beneficio"><span>🛡</span><h3>Información confiable</h3><p>Datos organizados para planificar cada viaje.</p></div>
-        <div class="beneficio"><span>📱</span><h3>Diseño responsive</h3><p>Acceso claro desde celular, tablet o computadora.</p></div>
-        <div class="beneficio"><span>♿</span><h3>Accesibilidad</h3><p>Tipografía legible, contraste y navegación simple.</p></div>
-        <div class="beneficio"><span>🚌</span><h3>Conexión urbana</h3><p>Integración entre Retiro y destinos clave.</p></div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
+<footer class="footer">
     <div class="footer-contenedor">
       <div class="footer-marca">
         <div class="footer-logo">

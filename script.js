@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // SCROLL ANIMATIONS
   // =========================
   const animatedElements = document.querySelectorAll(
-    ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card, .info-bloque, .info-link-card, .simulador-viaje"
+    ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card, .info-bloque, .info-link-card, .simulador-viaje, .consulta-apoyo, .consulta-rutas"
   );
 
   const observer = new IntersectionObserver((entries) => {
@@ -188,6 +188,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return (h * 60) + m;
     };
 
+    const escribirResultado = (selector, texto) => {
+      const elemento = document.querySelector(selector);
+      if (elemento) elemento.textContent = texto;
+    };
+
     simuladorForm.addEventListener("submit", function(e) {
       e.preventDefault();
 
@@ -222,13 +227,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (destinoLinea) destinoLinea.textContent = destino;
       if (lineaTramo) lineaTramo.style.setProperty("--progreso-viaje", estado.progreso);
 
-      document.querySelector("#resTransporte").textContent = datos.transporte;
-      document.querySelector("#resSector").textContent = datos.sector;
-      document.querySelector("#resDuracion").textContent = duracionTexto;
-      document.querySelector("#resCosto").textContent = datos.costo;
-      document.querySelector("#resSalida").textContent = formatearHora(salidaBase);
-      document.querySelector("#resLlegada").textContent = formatearHora(llegada);
-      document.querySelector("#resConsejo").textContent = `Llegá a Retiro a las ${formatearHora(salidaRecomendada)}. Es una ${datos.perfil} y el día seleccionado es ${dia.toLowerCase()}.`;
+      escribirResultado("#resTransporte", datos.transporte);
+      escribirResultado("#resSector", datos.sector);
+      escribirResultado("#resDuracion", duracionTexto);
+      escribirResultado("#resCosto", datos.costo);
+      escribirResultado("#resSalida", formatearHora(salidaBase));
+      escribirResultado("#resLlegada", formatearHora(llegada));
+      escribirResultado("#resConsejo", `Llegá a Retiro a las ${formatearHora(salidaRecomendada)}. Es una ${datos.perfil} y el día seleccionado es ${dia.toLowerCase()}.`);
 
       showLoader(`Simulando viaje a ${destino}...`, "Calculando salida, llegada y estado del servicio", 900);
       setTimeout(() => showToast(`Viaje Retiro → ${destino} simulado correctamente`), 950);
