@@ -70,7 +70,7 @@
       <div class="simulador-encabezado">
         <span class="simulador-kicker">Planificador inteligente</span>
         <h2 id="simulador-titulo">Simulá tu viaje desde Retiro</h2>
-        <p>Elegí destino, día y horario. El sistema estima la salida recomendada, la llegada aproximada y el estado del servicio para organizar mejor tu recorrido.</p>
+        <p>Elegí destino, día y horario. El sistema informa transporte recomendado, plataforma o sector de salida, duración, costo estimado, llegada aproximada y estado del servicio con datos simulados.</p>
       </div>
 
       <div class="simulador-grid">
@@ -94,10 +94,13 @@
           </div>
 
           <div class="resultado-datos">
+            <div><strong>Transporte recomendado</strong><span id="resTransporte">-</span></div>
+            <div><strong>Plataforma / sector</strong><span id="resSector">-</span></div>
             <div><strong>Duración estimada</strong><span id="resDuracion">-</span></div>
+            <div><strong>Costo estimado</strong><span id="resCosto">-</span></div>
             <div><strong>Próxima salida</strong><span id="resSalida">-</span></div>
             <div><strong>Llegada aproximada</strong><span id="resLlegada">-</span></div>
-            <div><strong>Recomendación</strong><span id="resConsejo">Seleccioná un destino para comenzar.</span></div>
+            <div class="resultado-dato-ancho"><strong>Recomendación</strong><span id="resConsejo">Seleccioná un destino para comenzar.</span></div>
           </div>
         </div>
       </div>

@@ -746,6 +746,171 @@ tbody tr:hover {
   justify-content: center;
 }
 
+
+/* SERVICIOS OBLIGATORIOS / MAPA TERMINAL / ASISTENTE */
+
+.servicio-detalle {
+  border-top: 1px solid #e1e7ee;
+  margin-top: 16px;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #42526b;
+}
+
+.mapa-terminal-section,
+.asistente-section {
+  max-width: 1200px;
+  margin: 20px auto 90px;
+  padding: 40px;
+  background: white;
+  border-radius: 32px;
+  box-shadow: 0 12px 32px rgba(11,31,58,0.1);
+}
+
+.mapa-terminal-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.terminal-plano {
+  position: relative;
+  min-height: 430px;
+  border-radius: 30px;
+  background:
+    linear-gradient(90deg, rgba(11,31,58,0.08) 1px, transparent 1px),
+    linear-gradient(rgba(11,31,58,0.08) 1px, transparent 1px),
+    #eef3f8;
+  background-size: 42px 42px;
+  overflow: hidden;
+  border: 2px solid #d7e2ee;
+}
+
+.terminal-plano::before {
+  content: "Hall central";
+  position: absolute;
+  left: 30%;
+  top: 34%;
+  width: 38%;
+  height: 24%;
+  border: 3px dashed #0b1f3a;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b1f3a;
+  font-weight: 800;
+  background: rgba(255,255,255,0.68);
+}
+
+.plano-zona {
+  position: absolute;
+  background: #ff6b4a;
+  color: #ffffff;
+  padding: 9px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+  white-space: nowrap;
+}
+
+.plano-acceso { left: 5%; top: 8%; background: #0b1f3a; }
+.plano-andenes { left: 13%; bottom: 10%; }
+.plano-anden-b { right: 12%; bottom: 12%; }
+.plano-banos { left: 8%; top: 44%; }
+.plano-info { left: 42%; top: 18%; background: #0b1f3a; }
+.plano-espera { right: 7%; top: 38%; }
+.plano-gastro { left: 34%; bottom: 22%; }
+.plano-estacionamiento { right: 5%; top: 8%; background: #0b1f3a; }
+.plano-asistente { right: 32%; bottom: 5%; background: #0b1f3a; }
+
+.chatbot-card {
+  background: #f4f6f8;
+  border-radius: 28px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  border: 1px solid #e1e7ee;
+}
+
+.chatbot-mensajes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatbot-bot,
+.chatbot-respuesta {
+  background: white;
+  border-radius: 20px;
+  padding: 18px 20px;
+  color: #42526b;
+  box-shadow: 0 8px 18px rgba(11,31,58,0.08);
+}
+
+.chatbot-bot {
+  border-left: 5px solid #ff6b4a;
+}
+
+.chatbot-respuesta {
+  color: #0b1f3a;
+  font-weight: 700;
+}
+
+.chatbot-formulario {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: end;
+}
+
+.resultado-dato-ancho {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 950px) {
+  .mapa-terminal-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chatbot-formulario {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .mapa-terminal-section,
+  .asistente-section {
+    margin: 0 22px 60px;
+    padding: 24px 20px;
+  }
+
+  .terminal-plano {
+    min-height: 520px;
+  }
+
+  .plano-zona {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .plano-acceso { left: 6%; top: 6%; }
+  .plano-estacionamiento { right: 6%; top: 15%; }
+  .plano-info { left: 24%; top: 25%; }
+  .plano-banos { left: 8%; top: 42%; }
+  .plano-espera { right: 8%; top: 44%; }
+  .plano-gastro { left: 20%; bottom: 28%; }
+  .plano-andenes { left: 8%; bottom: 12%; }
+  .plano-anden-b { right: 8%; bottom: 12%; }
+  .plano-asistente { right: 26%; bottom: 4%; }
+}
+
 /* CONTACTO */
 
 .contacto-contenido {
@@ -1465,6 +1630,8 @@ body.dark-mode .formulario-card,
 body.dark-mode .mapa-section,
 body.dark-mode .mapa-paradas,
 body.dark-mode .experiencia-section,
+body.dark-mode .mapa-terminal-section,
+body.dark-mode .asistente-section,
 body.dark-mode .ruta-link-card,
 body.dark-mode .info-bloque,
 body.dark-mode .info-link-card,
@@ -1475,7 +1642,9 @@ body.dark-mode .hero-tags span,
 body.dark-mode .hero-etiquetas span,
 body.dark-mode .contacto-tags span,
 body.dark-mode .visual-card,
-body.dark-mode .loader-card {
+body.dark-mode .loader-card,
+body.dark-mode .chatbot-bot,
+body.dark-mode .chatbot-respuesta {
   background: #0f2036;
   color: #f8fafc;
   box-shadow: 0 14px 34px rgba(0,0,0,0.38);
@@ -2173,4 +2342,26 @@ body.dark-mode .estado-rojo {
     background: #ff6b4a;
     border-color: #ff6b4a;
   }
+}
+
+
+body.dark-mode .servicio-detalle,
+body.dark-mode .chatbot-bot {
+  color: #d8e4f2;
+}
+
+body.dark-mode .terminal-plano,
+body.dark-mode .chatbot-card {
+  background-color: #102944;
+  border-color: #36516f;
+}
+
+body.dark-mode .terminal-plano::before {
+  border-color: #ffb199;
+  color: #ffffff;
+  background: rgba(15,32,54,0.78);
+}
+
+body.dark-mode .chatbot-respuesta {
+  color: #ffffff;
 }

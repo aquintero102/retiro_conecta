@@ -27,16 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     clearTimeout(loaderTimeout);
 
-    if (duration) {
+    // Si una navegación falla o el navegador bloquea algo, el loader no queda infinito.
+    const tiempoSeguro = duration === null ? 3500 : duration;
+    if (tiempoSeguro && tiempoSeguro > 0) {
       loaderTimeout = setTimeout(() => {
         hideLoader();
-      }, duration);
+      }, tiempoSeguro);
     }
   }
 
   function hideLoader() {
     loader.classList.remove("activo");
   }
+
+  window.addEventListener("pageshow", hideLoader);
 
   // Loader al entrar a la página, como una web profesional.
   showLoader("Cargando RetiroConecta...", "Inicializando la experiencia", 650);
@@ -45,8 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("a[href]").forEach(link => {
     link.addEventListener("click", function(e) {
       const href = this.getAttribute("href");
+      const target = this.getAttribute("target");
 
       if (!href || href === "#" || href.startsWith("mailto:") || href.startsWith("tel:")) {
+        return;
+      }
+
+      // No interferir con enlaces que abren otra pestaña ni con atajos del navegador.
+      if (target === "_blank" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
         return;
       }
 
@@ -56,11 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const message = isExternal ? "Abriendo ruta seleccionada..." : "Cargando sección...";
       const submessage = isExternal ? "Redirigiendo al proyecto correspondiente" : "Preparando el contenido";
 
-      showLoader(message, submessage, null);
+      showLoader(message, submessage, 1400);
 
       setTimeout(() => {
         window.location.href = href;
-      }, 750);
+      }, 650);
     });
   });
 
@@ -154,10 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (simuladorForm) {
     const datosViaje = {
-      "La Plata": { duracion: 90, frecuencia: 20, perfil: "ruta universitaria y administrativa" },
-      "Luján": { duracion: 105, frecuencia: 30, perfil: "ruta turística y familiar" },
-      "Zárate": { duracion: 110, frecuencia: 35, perfil: "ruta laboral e industrial" },
-      "Pilar": { duracion: 80, frecuencia: 20, perfil: "ruta residencial, educativa y comercial" }
+      "La Plata": { duracion: 90, frecuencia: 20, perfil: "ruta universitaria y administrativa", transporte: "Colectivo interurbano - Ruta 1", sector: "Plataforma 4 / Andén B", costo: "$4.200 aprox." },
+      "Luján": { duracion: 105, frecuencia: 30, perfil: "ruta turística y familiar", transporte: "Colectivo interurbano - Ruta 2", sector: "Plataforma 6 / Andén C", costo: "$4.600 aprox." },
+      "Zárate": { duracion: 110, frecuencia: 35, perfil: "ruta laboral e industrial", transporte: "Servicio semirápido - Ruta 3", sector: "Plataforma 8 / Sector Norte", costo: "$5.100 aprox." },
+      "Pilar": { duracion: 80, frecuencia: 20, perfil: "ruta residencial, educativa y comercial", transporte: "Colectivo directo - Ruta 4", sector: "Plataforma 2 / Sector Oeste", costo: "$3.900 aprox." }
     };
 
     const estadoServicio = [
@@ -204,13 +214,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const destinoLinea = document.querySelector(".linea-punto:not(.activo)");
       const lineaTramo = document.querySelector(".linea-tramo");
 
-      estadoElemento.className = `estado-servicio ${estado.clase}`;
-      estadoElemento.textContent = estado.texto;
-      rutaElemento.textContent = `Retiro → ${destino}`;
-      destinoLinea.textContent = destino;
-      lineaTramo.style.setProperty("--progreso-viaje", estado.progreso);
+      if (estadoElemento) {
+        estadoElemento.className = `estado-servicio ${estado.clase}`;
+        estadoElemento.textContent = estado.texto;
+      }
+      if (rutaElemento) rutaElemento.textContent = `Retiro → ${destino}`;
+      if (destinoLinea) destinoLinea.textContent = destino;
+      if (lineaTramo) lineaTramo.style.setProperty("--progreso-viaje", estado.progreso);
 
+      document.querySelector("#resTransporte").textContent = datos.transporte;
+      document.querySelector("#resSector").textContent = datos.sector;
       document.querySelector("#resDuracion").textContent = duracionTexto;
+      document.querySelector("#resCosto").textContent = datos.costo;
       document.querySelector("#resSalida").textContent = formatearHora(salidaBase);
       document.querySelector("#resLlegada").textContent = formatearHora(llegada);
       document.querySelector("#resConsejo").textContent = `Llegá a Retiro a las ${formatearHora(salidaRecomendada)}. Es una ${datos.perfil} y el día seleccionado es ${dia.toLowerCase()}.`;
@@ -263,6 +278,36 @@ document.addEventListener("DOMContentLoaded", () => {
         showToast("Consulta enviada correctamente");
         contactoForm.reset();
       }, 1200);
+    });
+  }
+
+
+  // =========================
+  // ASISTENTE VIRTUAL / FAQ
+  // =========================
+  const chatbotForm = document.querySelector(".chatbot-formulario");
+
+  if (chatbotForm) {
+    const respuestasChatbot = {
+      banos: "Los baños se encuentran en el hall central y en el sector de andenes. El servicio funciona las 24 horas.",
+      plataformas: "La plataforma aparece en la consulta de viajes. También podés verificarla en la oficina de información del acceso principal.",
+      estacionamiento: "El estacionamiento está en el acceso vehicular oeste y permanece abierto las 24 horas.",
+      gastronomia: "Los locales gastronómicos están en el patio gastronómico. El horario estimado es de 07:00 a 00:00.",
+      espera: "Las áreas de espera están en la Sala Norte y la Sala Sur, con asientos, pantallas informativas y puntos de carga."
+    };
+
+    chatbotForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const pregunta = document.querySelector("#chatbotPregunta")?.value;
+      const respuesta = document.querySelector("#chatbotRespuesta");
+
+      if (!pregunta) {
+        showToast("Seleccioná una pregunta del asistente");
+        return;
+      }
+
+      if (respuesta) respuesta.textContent = respuestasChatbot[pregunta];
+      showLoader("Consultando asistente...", "Buscando respuesta frecuente", 650);
     });
   }
 

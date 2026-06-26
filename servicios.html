@@ -54,12 +54,51 @@
     <section class="servicios-grid-section">
       <div class="section-title"><h2>Servicios disponibles</h2><p>Recursos para una experiencia de transporte moderna, organizada y accesible.</p></div>
       <div class="servicios-grid">
-        <article class="servicio-card"><div class="servicio-icono">♿</div><h3>Accesibilidad</h3><p>Rampas, circulación amplia, señalización clara y espacios reservados.</p></article>
-        <article class="servicio-card"><div class="servicio-icono">📶</div><h3>Wi-Fi gratuito</h3><p>Conexión disponible en terminales y puntos de espera.</p></article>
-        <article class="servicio-card"><div class="servicio-icono">💳</div><h3>Pago digital</h3><p>Compatibilidad con tarjetas y billeteras virtuales.</p></article>
-        <article class="servicio-card"><div class="servicio-icono">🔊</div><h3>Información sonora</h3><p>Avisos de salidas y llegadas mediante señalización visual y sonora.</p></article>
-        <article class="servicio-card"><div class="servicio-icono">🧭</div><h3>Orientación visual</h3><p>Paneles digitales y señalización intuitiva.</p></article>
-        <article class="servicio-card"><div class="servicio-icono">🛡</div><h3>Seguridad</h3><p>Monitoreo, iluminación y asistencia al pasajero.</p></article>
+        <article class="servicio-card"><div class="servicio-icono">🚻</div><h3>Baños</h3><p>Sanitarios generales y accesibles ubicados cerca del hall central y las plataformas.</p><div class="servicio-detalle"><span><strong>Ubicación:</strong> Hall central y sector andenes</span><span><strong>Horario:</strong> 24 h</span></div></article>
+        <article class="servicio-card"><div class="servicio-icono">ℹ️</div><h3>Oficina de información</h3><p>Asistencia para consultar recorridos, horarios, plataformas y accesibilidad.</p><div class="servicio-detalle"><span><strong>Ubicación:</strong> Acceso principal</span><span><strong>Horario:</strong> 06:00 a 23:00</span></div></article>
+        <article class="servicio-card"><div class="servicio-icono">🍽️</div><h3>Locales gastronómicos</h3><p>Cafeterías, kioscos y espacios de comida rápida para pasajeros.</p><div class="servicio-detalle"><span><strong>Ubicación:</strong> Patio gastronómico</span><span><strong>Horario:</strong> 07:00 a 00:00</span></div></article>
+        <article class="servicio-card"><div class="servicio-icono">🪑</div><h3>Áreas de espera</h3><p>Zonas señalizadas con asientos, carga de dispositivos y pantallas informativas.</p><div class="servicio-detalle"><span><strong>Ubicación:</strong> Sala Norte y Sala Sur</span><span><strong>Horario:</strong> 24 h</span></div></article>
+        <article class="servicio-card"><div class="servicio-icono">🅿️</div><h3>Estacionamiento</h3><p>Sector para autos particulares, taxis y ascenso o descenso rápido.</p><div class="servicio-detalle"><span><strong>Ubicación:</strong> Acceso vehicular oeste</span><span><strong>Horario:</strong> 24 h</span></div></article>
+        <article class="servicio-card"><div class="servicio-icono">💬</div><h3>Asistente virtual</h3><p>Servicio complementario de preguntas frecuentes para orientar al usuario dentro del sitio.</p><div class="servicio-detalle"><span><strong>Ubicación:</strong> Web y códigos QR</span><span><strong>Horario:</strong> 24 h</span></div></article>
+      </div>
+    </section>
+
+    <section class="mapa-terminal-section" aria-labelledby="mapa-terminal-titulo">
+      <div class="mapa-texto">
+        <span class="simulador-kicker">Plano visual</span>
+        <h2 id="mapa-terminal-titulo">Mapa del Centro de Transporte</h2>
+        <p>Plano orientativo de la terminal para identificar plataformas, andenes, accesos, baños, información, espera, gastronomía, estacionamiento y servicios complementarios.</p>
+        <div class="mapa-items">
+          <div class="mapa-item"><span>1</span><p>Plataformas y andenes de salida.</p></div>
+          <div class="mapa-item"><span>2</span><p>Accesos peatonales y vehiculares.</p></div>
+          <div class="mapa-item"><span>3</span><p>Servicios para pasajeros y asistencia.</p></div>
+        </div>
+      </div>
+
+      <div class="terminal-plano" role="img" aria-label="Mapa visual de la terminal RetiroConecta con plataformas, accesos, baños, información, espera, gastronomía y estacionamiento">
+        <div class="plano-zona plano-acceso">Acceso principal</div>
+        <div class="plano-zona plano-andenes">Plataformas 1-8</div>
+        <div class="plano-zona plano-anden-b">Andén B</div>
+        <div class="plano-zona plano-banos">Baños</div>
+        <div class="plano-zona plano-info">Información</div>
+        <div class="plano-zona plano-espera">Área de espera</div>
+        <div class="plano-zona plano-gastro">Gastronomía</div>
+        <div class="plano-zona plano-estacionamiento">Estacionamiento</div>
+        <div class="plano-zona plano-asistente">QR asistente</div>
+      </div>
+    </section>
+
+    <section class="asistente-section" aria-labelledby="asistente-titulo">
+      <div class="section-title"><h2 id="asistente-titulo">Preguntas frecuentes y asistente</h2><p>Servicio complementario para resolver dudas rápidas sobre la terminal sin salir de la página.</p></div>
+      <div class="chatbot-card">
+        <div class="chatbot-mensajes">
+          <div class="chatbot-bot">Hola, soy el asistente de RetiroConecta. Elegí una consulta frecuente para recibir orientación inmediata.</div>
+        </div>
+        <form class="chatbot-formulario">
+          <div class="campo"><label for="chatbotPregunta">Consulta rápida</label><select id="chatbotPregunta"><option value="">Seleccionar pregunta</option><option value="banos">¿Dónde están los baños?</option><option value="plataformas">¿Cómo encuentro mi plataforma?</option><option value="estacionamiento">¿Dónde queda el estacionamiento?</option><option value="gastronomia">¿Hay locales gastronómicos?</option><option value="espera">¿Dónde puedo esperar mi salida?</option></select></div>
+          <button type="submit" class="btn-principal">Consultar</button>
+        </form>
+        <div class="chatbot-respuesta" id="chatbotRespuesta">La respuesta aparecerá acá cuando selecciones una pregunta.</div>
       </div>
     </section>
 
