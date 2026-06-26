@@ -264,7 +264,7 @@ textarea:focus-visible {
   margin: auto;
 }
 
-/* INDEX */
+
 
 .hero-imagen {
   background: linear-gradient(135deg, #0b1f3a, #1d3f66);
@@ -495,7 +495,7 @@ textarea:focus-visible {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* PANELES */
+
 
 .hero-panel,
 .horarios-resumen,
@@ -547,7 +547,7 @@ textarea:focus-visible {
   background-color: #4cff7b;
 }
 
-/* RECORRIDOS / PARADAS */
+
 
 .contenido,
 .paradas-grid-section,
@@ -659,7 +659,7 @@ textarea:focus-visible {
 .p3, .parada-3, .punto-3 { left: 44%; top: 62%; }
 .p4, .parada-4, .punto-4 { right: 10%; bottom: 14%; }
 
-/* HORARIOS */
+
 
 .tabla-contenedor {
   background: white;
@@ -701,7 +701,7 @@ tbody tr:hover {
   gap: 24px;
 }
 
-/* SERVICIOS */
+
 
 .experiencia-item span,
 .mapa-item span {
@@ -747,7 +747,6 @@ tbody tr:hover {
 }
 
 
-/* SERVICIOS OBLIGATORIOS / MAPA TERMINAL / ASISTENTE */
 
 .servicio-detalle {
   border-top: 1px solid #e1e7ee;
@@ -911,7 +910,7 @@ tbody tr:hover {
   .plano-asistente { right: 26%; bottom: 4%; }
 }
 
-/* CONTACTO */
+
 
 .contacto-contenido {
   max-width: 1200px;
@@ -967,7 +966,7 @@ tbody tr:hover {
   margin-bottom: 16px;
 }
 
-/* FOOTER */
+
 
 .footer {
   background-color: #061426;
@@ -1056,7 +1055,7 @@ tbody tr:hover {
   font-size: 14px;
 }
 
-/* RESPONSIVE */
+
 
 @media (max-width: 950px) {
   .header {
@@ -1245,7 +1244,7 @@ tbody tr:hover {
 }
 
 
-/* LINKS EXTERNOS DE RUTAS */
+
 .link-ruta,
 .link-tabla,
 .link-titulo {
@@ -1322,7 +1321,7 @@ tbody tr:hover {
 }
 
 
-/* LOADER PROFESIONAL */
+
 .loader-overlay {
   position: fixed;
   inset: 0;
@@ -1422,7 +1421,7 @@ tbody tr:hover {
 }
 
 
-/* SECCIONES DE INFORMACIÓN */
+
 .info-hero {
   max-width: 1200px;
   margin: 60px auto;
@@ -1576,7 +1575,6 @@ tbody tr:hover {
 }
 
 
-/* MODO OSCURO: contraste corregido también en responsive */
 body.dark-mode {
   background: #07111f;
   color: #f8fafc;
@@ -1794,7 +1792,6 @@ body.dark-mode .modo-toggle {
 }
 
 
-/* IMÁGENES ILUSTRATIVAS */
 .hero-ilustrada {
   position: relative;
   overflow: hidden;
@@ -1989,7 +1986,6 @@ body.dark-mode .hero-ilustrada .imagen-destacada {
 }
 
 
-/* SIMULADOR DE VIAJE */
 .simulador-viaje {
   max-width: 1120px;
   margin: 0 auto 80px;
@@ -2249,7 +2245,6 @@ body.dark-mode .estado-rojo {
   }
 }
 
-/* AJUSTE FINAL: hamburguesa visible en responsive y modo oscuro */
 @media (max-width: 768px) {
   .menu-toggle {
     background: #ffffff;
@@ -2276,7 +2271,6 @@ body.dark-mode .estado-rojo {
   }
 }
 
-/* AJUSTE FINAL: contraste de links dentro del menú hamburguesa */
 @media (max-width: 768px) {
   .nav-links,
   .nav-links.activo,
@@ -2367,7 +2361,6 @@ body.dark-mode .chatbot-respuesta {
 }
 
 
-/* AJUSTES ENTREGA FINAL: página propia de consulta de viajes */
 .consulta-hero {
   margin-bottom: 30px;
 }

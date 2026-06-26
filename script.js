@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =========================
-  // LOADER PROFESIONAL
-  // =========================
+
   const loader = document.createElement("div");
   loader.className = "loader-overlay";
   loader.innerHTML = `
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     clearTimeout(loaderTimeout);
 
-    // Si una navegación falla o el navegador bloquea algo, el loader no queda infinito.
     const tiempoSeguro = duration === null ? 3500 : duration;
     if (tiempoSeguro && tiempoSeguro > 0) {
       loaderTimeout = setTimeout(() => {
@@ -42,10 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("pageshow", hideLoader);
 
-  // Loader al entrar a la página, como una web profesional.
   showLoader("Cargando RetiroConecta...", "Inicializando la experiencia", 650);
 
-  // Loader al hacer clic en links internos o externos.
   document.querySelectorAll("a[href]").forEach(link => {
     link.addEventListener("click", function(e) {
       const href = this.getAttribute("href");
@@ -55,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // No interferir con enlaces que abren otra pestaña ni con atajos del navegador.
       if (target === "_blank" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
         return;
       }
@@ -74,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Loader cada vez que se selecciona una opción o fecha.
   document.querySelectorAll("select, input[type='date']").forEach(elemento => {
     elemento.addEventListener("change", () => {
       const valor = elemento.value;
@@ -86,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Loader visual al presionar botones comunes.
   document.querySelectorAll("button, .btn-principal, .btn-secundario, .btn-card").forEach(elemento => {
     elemento.addEventListener("click", () => {
       if (elemento.closest("form") || elemento.classList.contains("menu-toggle") || elemento.classList.contains("modo-toggle")) return;
@@ -95,9 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // =========================
-  // NAVBAR SHADOW ON SCROLL
-  // =========================
+
   const header = document.querySelector(".header");
 
   window.addEventListener("scroll", () => {
@@ -109,9 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // =========================
-  // SCROLL ANIMATIONS
-  // =========================
+
   const animatedElements = document.querySelectorAll(
     ".card, .recorrido-card, .parada-card, .servicio-card, .horario-card, .info-card, .info-bloque, .info-link-card, .simulador-viaje, .consulta-apoyo, .consulta-rutas"
   );
@@ -135,9 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // =========================
-  // BUSCADOR INDEX
-  // =========================
+
   const buscador = document.querySelector(".buscador form");
 
   if (buscador) {
@@ -157,9 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================
-  // SIMULADOR DE VIAJE
-  // =========================
+
   const simuladorForm = document.querySelector(".simulador-formulario");
 
   if (simuladorForm) {
@@ -241,9 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================
-  // FILTRO HORARIOS
-  // =========================
+
   const filtroHorarios = document.querySelector(".filtros-horarios form");
 
   if (filtroHorarios) {
@@ -255,9 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================
-  // CONTACTO FORM
-  // =========================
+
   const contactoForm = document.querySelector(".formulario-contacto");
 
   if (contactoForm) {
@@ -287,9 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================
-  // ASISTENTE VIRTUAL / FAQ
-  // =========================
+
   const chatbotForm = document.querySelector(".chatbot-formulario");
 
   if (chatbotForm) {
@@ -317,9 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================
-  // MAPA HOVER
-  // =========================
+
   const puntos = document.querySelectorAll(".punto, .parada-mapa");
 
   puntos.forEach(punto => {
@@ -333,9 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // =========================
-  // MENÚ HAMBURGUESA RESPONSIVE
-  // =========================
+
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
@@ -358,9 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================
-  // DARK MODE
-  // =========================
+
   const darkButton = document.createElement("button");
   darkButton.type = "button";
   darkButton.className = "modo-toggle";
@@ -388,9 +360,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // =========================
-  // TOAST SYSTEM
-  // =========================
   function showToast(text) {
     const toast = document.createElement("div");
 
